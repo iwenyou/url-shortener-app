@@ -1,15 +1,9 @@
-<form>
+<%= form_tag "/links" do %>
+  <%= label_tag :slug %>
+  <%= text_field_tag :slug, @link.slug %>
 
-  <div class="form-group">
-    <label for="slug">slug</label>
-    <input type="text" class="form-control" id="slug" placeholder="input slug here">
-  </div>
+  <%= label_tag :target_url %>
+  <%= text_field_tag :target_url, @link.target_url %>
 
-  <div class="form-group">
-    <label for="target_url">URL</label>
-    <input type="text" class="form-control" id="target_url" placeholder="input your link here">
-  </div>
-
-  <button type="submit" class="btn btn-primary">Submit</button>
-
-</form>
+  <%= submit_tag "Create Link" %>
+<% end %>
