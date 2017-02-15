@@ -10,8 +10,15 @@ class LinksController < ApplicationController
   def create
     @link = Link.new(:slug => params[:slug], :target_url => params[:target_url], :user_id => current_user.id)
 
-    @link.save
+    @link.standardize_target_url!
 
-    redirect_to '/'
+    if @link.save
+      flash[:success] = "Link successfully created!"
+      redirect_to '/'
+    else
+      flash[:warning] = "Link unable to create!"
+      render :new
+    end
+
   end
 end
