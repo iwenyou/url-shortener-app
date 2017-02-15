@@ -10,5 +10,9 @@ class Link < ApplicationRecord
   target_url.gsub!("https://", "")
   end
 
+  def visit_count
+    visits.count
+  end
+
 
 end

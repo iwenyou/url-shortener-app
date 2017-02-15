@@ -21,4 +21,10 @@ class LinksController < ApplicationController
     end
 
   end
+
+  def show
+
+    request.remote_ip
+
+  end
 end
